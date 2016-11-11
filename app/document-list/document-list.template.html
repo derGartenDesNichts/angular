@@ -1,0 +1,34 @@
+<div class="container-fluid modal-demo">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+		<button 
+			class="btn btn-info" 
+			type="file" 
+			ngf-select="$ctrl.uploadFiles($file, $invalidFiles)" 
+			accept="application/pdf" 
+			ngf-max-size="10MB"
+		>Select File</button>
+	  
+		<!-- UPLOAD -->
+		<div>
+			<div class="error">{{$ctrl.errFile.$error}} {{$ctrl.errFile.$errorParam}}</div>
+		</div>     
+		<div class="error">{{$ctrl.errorMsg}}</div>
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+	  
+		<ul class="phones">
+		  <li ng-repeat="document in $ctrl.documents"
+			  class="thumbnail phone-list-item">
+			<div ng-click="$ctrl.open(document.id, document.filename)" class="thumb">
+				<img src="{{document.thumbnail}}" />
+			</div>
+			<div>{{document.filename}}</div>
+		  </li>
+		</ul>
+
+    </div>
+  </div>
+</div>
